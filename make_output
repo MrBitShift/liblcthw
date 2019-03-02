@@ -1,0 +1,59 @@
+ar rcs build/liblcthw.a src/lcthw/list.o
+ranlib build/liblcthw.a 
+cc -shared -o build/liblcthw.so src/lcthw/list.o 
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  build/liblcthw.a    tests/list_tests.c   -o tests/list_tests
+In file included from tests/list_tests.c:1:0:
+tests/list_tests.c: In function ‘main’:
+tests/minunit.h:16:29: warning: ‘main’ is normally a non-static function [-Wmain]
+ #define RUN_TESTS(name) int main(int argc, char *argv[]) {\
+                             ^
+tests/list_tests.c:109:2: note: in expansion of macro ‘RUN_TESTS’
+  RUN_TESTS(all_tests);
+  ^~~~~~~~~
+tests/list_tests.c: In function ‘main’:
+tests/minunit.h:16:38: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+ #define RUN_TESTS(name) int main(int argc, char *argv[]) {\
+                                      ^
+tests/list_tests.c:109:2: note: in expansion of macro ‘RUN_TESTS’
+  RUN_TESTS(all_tests);
+  ^~~~~~~~~
+tests/list_tests.c: In function ‘main’:
+tests/list_tests.c:107:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+              ^~~~
+tests/list_tests.c:107:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+                          ^~~~
+In file included from tests/list_tests.c:1:0:
+At top level:
+tests/minunit.h:16:29: warning: ‘main’ defined but not used [-Wunused-function]
+ #define RUN_TESTS(name) int main(int argc, char *argv[]) {\
+                             ^
+tests/list_tests.c:109:2: note: in expansion of macro ‘RUN_TESTS’
+  RUN_TESTS(all_tests);
+  ^~~~~~~~~
+/tmp/ccez0WJl.o: In function `test_create':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:12: undefined reference to `List_create'
+/tmp/ccez0WJl.o: In function `test_destroy':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:20: undefined reference to `List_clear_destroy'
+/tmp/ccez0WJl.o: In function `test_push_pop':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:28: undefined reference to `List_push'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:31: undefined reference to `List_push'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:34: undefined reference to `List_push'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:38: undefined reference to `List_pop'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:41: undefined reference to `List_pop'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:44: undefined reference to `List_pop'
+/tmp/ccez0WJl.o: In function `test_unshift':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:53: undefined reference to `List_unshift'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:56: undefined reference to `List_unshift'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:59: undefined reference to `List_unshift'
+/tmp/ccez0WJl.o: In function `test_remove':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:71: undefined reference to `List_remove'
+/tmp/ccez0WJl.o: In function `test_shift':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:84: undefined reference to `List_shift'
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:87: undefined reference to `List_shift'
+/tmp/ccez0WJl.o: In function `test_destroy':
+/home/pi/Programming Projects/C Exercises/liblcthw/tests/list_tests.c:20: undefined reference to `List_clear_destroy'
+collect2: error: ld returned 1 exit status
+<builtin>: recipe for target 'tests/list_tests' failed
+make: *** [tests/list_tests] Error 1
